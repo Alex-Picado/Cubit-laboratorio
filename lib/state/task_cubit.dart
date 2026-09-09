@@ -13,12 +13,12 @@ class TaskManagerCubit extends Cubit<TaskManagerState> {
     }
 
     emit(TaskManagerState(tasks: [...state.tasks, task]));
+  }
 
-    void removeTask(int index) {
-      final updateTask = [...state.tasks];
-      updateTask.removeAt(index);
+  void removeTask(int index) {
+    final updateTask = [...state.tasks];
+    updateTask.removeAt(index);
 
-      emit(TaskManagerState(tasks: updateTask));
-    }
+    emit(TaskManagerState(tasks: updateTask));
   }
 }
