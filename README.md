@@ -6,16 +6,6 @@ Aplicacion Flutter para gestionar tareas usando Cubit como estrategia de gestion
 
 Se utiliza `Cubit` mediante el paquete `flutter_bloc`. Cubit guarda el estado actual y emite un nuevo estado cada vez que una accion cambia la informacion. No trabaja con eventos separados como BLoC: cada metodo publico del Cubit representa una accion directa.
 
-## Integrantes
-
-El trabajo se dividio en responsabilidades:
-
-- Personas 1 y 2: modelo, estado, Cubit y pruebas de agregar, alternar y eliminar.
-- Personas 3 y 4: pantalla, formulario y conexion mediante `BlocProvider` y `BlocBuilder`.
-- Personas 5 y 6: pendiente. Les corresponde agregar la fila completa, los controles de completar/eliminar y el tablero de contadores.
-
-En esta version solo estan implementadas las responsabilidades de las personas 1 a 4.
-
 ## Funcionalidades
 
 - Registrar una tarea con un titulo.
@@ -136,16 +126,6 @@ El estado vive en memoria dentro de la instancia de `TaskManagerCubit` creada po
 
 Para una aplicacion pequena o mediana, Cubit es una opcion clara y practica. Para una aplicacion grande tambien puede utilizarse, organizando varios Cubits por dominio, agregando repositorios, persistencia y estados de carga o error. Si se necesita modelar muchos eventos complejos y sus transiciones, BLoC podria ser mas adecuado.
 
-## Requisitos del laboratorio cubiertos
-
-- Proyecto Flutter funcional: si.
-- Cubit como tecnologia asignada: si.
-- Registrar y listar tareas: si.
-- Completar, eliminar y tablero de contadores: pendiente para personas 5 y 6.
-- Separacion entre estado y UI: si.
-- Pruebas de la logica de personas 1 y 2 y de la pantalla de personas 3 y 4: si.
-- README y explicacion del flujo: si.
-
 ## Ejecutar el proyecto
 
 ```bash
@@ -160,13 +140,3 @@ flutter analyze
 flutter test
 ```
 
-## Mejoras posibles
-
-Estas funciones no son necesarias para el laboratorio, pero serian utiles en una version posterior:
-
-- Persistir tareas con SQLite, Hive o almacenamiento local.
-- Agregar estados de carga y error si los datos vienen de una API.
-- Permitir editar el titulo de una tarea.
-- Separar la pantalla en widgets y agregar filtros por estado.
-- Usar ids generados con `Uuid` si las tareas vienen de un servidor.
-- Agregar accesibilidad, confirmacion antes de eliminar y fechas de entrega.
