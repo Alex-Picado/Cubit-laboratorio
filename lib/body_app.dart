@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'state/task_cubit.dart';
 import 'state/task_state.dart';
+import 'widgets/task_counters.dart';
+import 'widgets/task_tile.dart';
 
 class BodyApp extends StatefulWidget {
   const BodyApp({super.key});
@@ -28,10 +30,7 @@ class _BodyAppState extends State<BodyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('TaskFlow'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('TaskFlow'), centerTitle: true),
       body: BlocBuilder<TaskManagerCubit, TaskManagerState>(
         builder: (context, state) {
           return Padding(
@@ -61,6 +60,8 @@ class _BodyAppState extends State<BodyApp> {
                   ],
                 ),
                 const SizedBox(height: 16),
+                TaskCounters(state: state),
+                const SizedBox(height: 16),
                 Expanded(
                   child: state.tasks.isEmpty
                       ? const Center(child: Text('No hay tareas registradas'))
@@ -69,8 +70,15 @@ class _BodyAppState extends State<BodyApp> {
                           separatorBuilder: (_, _) => const Divider(),
                           itemBuilder: (context, index) {
                             final task = state.tasks[index];
-                            return ListTile(
-                              title: Text(task.title),
+                            return TaskTile(
+                              key: ValueKey(task.id),
+                              task: task,
+                              onToggle: () => context
+                                  .read<TaskManagerCubit>()
+                                  .toggleTask(task.id),
+                              onDelete: () => context
+                                  .read<TaskManagerCubit>()
+                                  .removeTask(task.id),
                             );
                           },
                         ),
