@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'state/task_cubit.dart';
-import 'state/task_state.dart';
 
 void main() {
-  runApp(BlocProvider(create: (_) => TaskManagerCubit(), child: const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,9 +14,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Task Flow - Cubit Edition',
-      home: const Scaffold(body: BodyApp()),
+    return BlocProvider(
+      create: (_) => TaskManagerCubit(),
+      child: MaterialApp(
+        title: 'TaskFlow - Cubit',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+          useMaterial3: true,
+        ),
+        home: const BodyApp(),
+      ),
     );
   }
 }

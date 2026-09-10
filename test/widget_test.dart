@@ -9,22 +9,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:cubit_lab_desarrollo4/main.dart';
+import 'package:cubit_lab_desarrollo4/state/task_cubit.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  test('el Cubit agrega, alterna y elimina tareas', () async {
+    final cubit = TaskManagerCubit();
+
+    cubit.addTask('  Estudiar Cubit  ');
+    expect(cubit.state.tasks.single.title, 'Estudiar Cubit');
+    expect(cubit.state.tasks.single.completed, isFalse);
+
+    final taskId = cubit.state.tasks.single.id;
+    cubit.toggleTask(taskId);
+    expect(cubit.state.completedTasks, 1);
+    expect(cubit.state.pendingTasks, 0);
+
+    cubit.removeTask(taskId);
+    expect(cubit.state.tasks, isEmpty);
+
+    await cubit.close();
+  });
+
+  test('el Cubit ignora tareas vacias', () async {
+    final cubit = TaskManagerCubit();
+
+    cubit.addTask('   ');
+
+    expect(cubit.state.tasks, isEmpty);
+    await cubit.close();
+  });
+
+  testWidgets('la pantalla permite gestionar una tarea', (tester) async {
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('No hay tareas registradas'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
+    await tester.enterText(find.byType(TextField), 'Preparar exposicion');
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Preparar exposicion'), findsOneWidget);
   });
 }
