@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (_) => TaskManagerCubit(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'TaskFlow - Cubit',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
