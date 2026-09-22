@@ -195,3 +195,5 @@ flutter test
 - [Flutter: IconButton](https://api.flutter.dev/flutter/material/IconButton-class.html): boton de eliminar y accion `onPressed`.
 - [Flutter: Wrap](https://api.flutter.dev/flutter/widgets/Wrap-class.html): distribucion del tablero cuando falta espacio horizontal.
 
+#   T o D o - F i r e b a s e  
+ 
