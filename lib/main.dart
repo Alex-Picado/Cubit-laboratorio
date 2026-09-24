@@ -2,6 +2,8 @@ import 'package:cubit_lab_desarrollo4/body_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'task_repository.dart';
+
 import 'state/task_cubit.dart';
 
 void main() {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => TaskManagerCubit(),
+      create: (_) => TaskManagerCubit(TaskRepository()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'TaskFlow - Cubit',
