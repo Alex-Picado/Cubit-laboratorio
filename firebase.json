@@ -1,16 +1,1 @@
-{
-  "hosting": {
-    "public": "build/web",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
+{"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]},"flutter":{"platforms":{"android":{"default":{"projectId":"todo-cd175","appId":"1:169081098691:android:a2d48b5cbdb56ca60fad76","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"todo-cd175","configurations":{"android":"1:169081098691:android:a2d48b5cbdb56ca60fad76","ios":"1:169081098691:ios:19d35363585562b80fad76","macos":"1:169081098691:ios:19d35363585562b80fad76","web":"1:169081098691:web:357eb089ce8d097c0fad76","windows":"1:169081098691:web:632f0adb8b4502c80fad76"}}}}}}

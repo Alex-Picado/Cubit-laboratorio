@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "169081098691",
+    "project_id": "todo-cd175",
+    "storage_bucket": "todo-cd175.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169081098691:android:a2d48b5cbdb56ca60fad76",
+        "android_client_info": {
+          "package_name": "com.example.cubit_lab_desarrollo4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-kzFjD9_6rs3TaoYdUF5w7WSDOZ413vE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
